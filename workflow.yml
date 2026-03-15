@@ -1,0 +1,67 @@
+name: Cartel Fury PC Game CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up .NET (for Unity)
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Set up Unity
+      uses: game-ci/unity-builder@v2
+      with:
+        unityVersion: '2021.3.10f1' # Adjust Unity version as needed
+
+    - name: Build Game
+      run: |
+        unity-editor -quit -batchmode -nographics -projectPath . -buildLinux64Player ./Builds/CartelFuryLinux.exe
+        unity-editor -quit -batchmode -nographics -projectPath . -buildWindows64Player ./Builds/CartelFuryWindows.exe
+
+    - name: Run Tests
+      run: unity-editor -runTests -testPlatform EditMode -projectPath .
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: CartelFuryBuilds
+        path: ./Builds
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: CartelFuryBuilds
+        path: ./Builds
+
+    - name: Deploy to Itch.io (Example)
+      uses: josephbmanley/butler-publish-itchio-action@master
+      with:
+        butlerApiKey: ${{ secrets.BUTLER_API_KEY }}
+        gameDataPath: ./Builds
+        itchUsername: your-itch-username
+        itchGameId: your-itch-game-id
+        channel: windows
+
+    - name: Deploy to Steam (Example)
+      run: |
+        # Add Steam SDK setup and deployment commands here
+        # Example: Use steamcmd or a custom script to upload builds to Steam
