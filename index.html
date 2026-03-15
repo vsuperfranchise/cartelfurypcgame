@@ -1,14 +1,20 @@
-<!DOCTYPE html><html class="no-js"><head>
-    <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PandaSuite Viewer Embed</title>
+    <title>Convacation Games</title>
+    <meta property="og:title" content="Convacation Games">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="mobile-web-app-capable">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-        <iframe 
+    <!-- PandaSuite Viewer Iframe -->
+    <iframe 
         src="https://viewer.pandasuite.com/gb1pv674?wid=b1cebea37f2456f800088e" 
         width="100%" 
         height="600px" 
@@ -17,53 +23,26 @@
         <!-- Fallback message if the iframe doesn't load -->
         <p>Your browser does not support iframes. Please visit <a href="https://viewer.pandasuite.com/gb1pv674?wid=b1cebea37f2456f800088e">this link</a> instead.</p>
     </iframe>
+
+    <!-- AI Agent Integration -->
+    <script>
+        // Fetch the AI agent's JSON data
+        fetch('result-pr.bb970f4a-a7e4-4d07-a501-fdfb0a437848-production-2026-03-15T18-04-48.136Z.json')
+            .then(response => response.json())
+            .then(data => {
+                // Process the AI agent's data here
+                console.log('AI Agent Data:', data);
+                // Example: Displaying data in the console or using it in your application
+                // You can integrate this data with your existing scripts or UI elements
+            })
+            .catch(error => console.error('Error loading AI agent data:', error));
+    </script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Cloudflare Beacon Script -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" 
+            data-cf-beacon='{"version":"2024.11.0","token":"aad3c4cb71aa4f5e8481469123b07104","server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}' 
+            crossorigin="anonymous"></script>
 </body>
 </html>
-    <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <title>Convacation Games</title>
-    <meta property="og:title" content="Convacation Games">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="mobile-web-app-capable">
-    <meta content="width=device-width" name="viewport">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <script nonce="cf4d865069750449">
-      window.PandaConfig = {
-        viewer_version: "3.8.11",
-        viewer_api_url: "https://pandasuite.com",
-        viewer_data_url: "https://data.pandasuite.com",
-
-        branch_key: "key_live_bihKD92ESYmN8ODDFq4c4fbhCugzCyAu",
-        _branch_match_id: "",
-
-        publication_id: "ukzhkZwBjwBP-b7aUBlX",
-        snap_id: "",
-        pen_id: "",
-
-        channel_id: "",
-        channel_token: "",
-        brand: false,
-        skin: true,
-        title: "Convacation Games",
-        token: "",
-
-        preload: 0,
-        sw: false,
-        waitForSW: false,
-        production: false,
-        swids: null
-      };
-    </script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    
-  </head>
-  <body>
-    <div ui-view=""></div>
-    <script src="js/main.js"></script>
-    
-  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" data-cf-beacon="{" version":"2024.11.0","token":"aad3c4cb71aa4f5e8481469123b07104","server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}"="" crossorigin="anonymous"></script>
-
-
-</body></html>
