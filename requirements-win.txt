@@ -1,0 +1,8 @@
+colorama==0.4.6
+    # via tqdm
+tqdm==4.67.1
+    # via -r requirements.in
+    colorama==0.4.6
+    # via tqdm
+tqdm==4.67.1
+    # via -r requirements.in

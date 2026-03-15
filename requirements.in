@@ -1,0 +1,4 @@
+tqdm
+./path-dep
+-e ./editable-path-dep
+git-dep @ git+https://github.com/astral-sh/git-dep

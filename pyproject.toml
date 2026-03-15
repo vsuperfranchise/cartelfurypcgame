@@ -1,0 +1,27 @@
+[project]
+name = "cartelfurypcgame"
+version = "0.1.0"
+description = "Cartel Fury is the thrilling third installment in the renowned Cartel series, a 3D third-person action-adventure game. Set in a sprawling urban landscape, this installment delves into the complex world of crime, corruption, and justice."
+readme = "README.md"
+dependencies = []
+[project]
+name = "cartelfurypcgame"
+version = "0.0.1"
+dependencies = [
+    "fastapi",
+    "pydantic>2"
+]
+
+[dependency-groups]
+dev = ["pytest"]
+[project]
+dependencies = [
+    "path-dep",
+    "editable-path-dep",
+    "git-dep",
+]
+
+[tool.uv.sources]
+path-dep = { path = "./path-dep" }
+editable-path-dep = { path = "./editable-path-dep", editable = true }
+git-dep = { git = "https://github.com/astral-sh/git-dep" }
